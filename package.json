@@ -2,21 +2,24 @@
 	"name": "kroki-preview-vscode",
 	"displayName": "%displayName%",
 	"description": "%description%",
-	"version": "0.0.10",
-	"publisher": "chrisvandesteeg",
-	"author": "Chris van de Steeg",
+	"version": "0.1.0",
+	"publisher": "agayev169",
+	"author": "Kamal Aghayev",
+	"contributors": [
+		"Chris van de Steeg (original author)"
+	],
 	"license": "MIT",
 	"readme": "README.md",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/csteeg/kroki-preview-vscode"
+		"url": "https://github.com/agayev169/kroki-preview-vscode"
 	},
 	"galleryBanner": {
 		"color": "#78d6f0",
 		"theme": "light"
 	},
-	"bugs": "https://github.com/csteeg/kroki-preview-vscode/issues",
-	"homepage": "https://github.com/csteeg/kroki-preview-vscode/",
+	"bugs": "https://github.com/agayev169/kroki-preview-vscode/issues",
+	"homepage": "https://github.com/agayev169/kroki-preview-vscode/",
 	"icon": "icon.png",
 	"main": "./dist/extension.js",
 	"engines": {
@@ -182,6 +185,11 @@
 			"title": "HTML",
 			"order": 20,
 			"properties": {
+				"kroki.serverUrl": {
+					"type": "string",
+					"default": "https://kroki.io",
+					"description": "Base URL of the Kroki server used to render diagrams. Set this to point at a self-hosted Kroki instance (e.g. http://localhost:8000)."
+				},
 				"kroki.supportedFiles": {
 					"type": "array",
 					"items": {

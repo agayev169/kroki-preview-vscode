@@ -42,6 +42,45 @@ Welcome to the Kroki Diagram Viewer! This VS Code extension allows you to previe
 5. **Structurizr DSL Support**:
     - Structurizr DSL supports viewing all views in the preview. You can navigate through different views of your Structurizr models seamlessly.
 
+## Configuration
+
+The extension contributes the following settings (open VS Code settings with `Cmd+,` / `Ctrl+,` and search for `kroki`, or edit `settings.json` directly):
+
+### `kroki.serverUrl`
+
+The base URL of the Kroki server used to render diagrams. Defaults to the public instance at `https://kroki.io`.
+
+Point this at a self-hosted Kroki server to keep your diagrams private or to work offline:
+
+```json
+{
+  "kroki.serverUrl": "http://localhost:8000"
+}
+```
+
+You can run a local Kroki server with Docker:
+
+```bash
+docker run -p 8000:8000 yuzutech/kroki
+```
+
+Some diagram types (Mermaid, BPMN, Excalidraw, etc.) are served by Kroki companion containers — see the [Kroki self-hosting docs](https://docs.kroki.io/kroki/setup/install/) for the full setup.
+
+### `kroki.supportedFiles`
+
+A list of `{ "extension": "...", "type": "..." }` entries mapping file extensions to Kroki diagram types. The default list covers ~25 diagram types including PlantUML, Mermaid, Graphviz, Structurizr DSL, D2, BPMN, Vega, Excalidraw, TikZ, WaveDrom, and more. Add to this list to enable preview for additional extensions:
+
+```json
+{
+  "kroki.supportedFiles": [
+    { "extension": ".puml", "type": "plantuml" },
+    { "extension": ".myext", "type": "plantuml" }
+  ]
+}
+```
+
+The `type` value must be one of the diagram types supported by Kroki — see the [Kroki diagram types reference](https://kroki.io/#support).
+
 ## Acknowledgements
 
 This extension is in its very early alpha stages, and we have borrowed code from some fantastic existing projects to get it off the ground. Special thanks to:
@@ -61,7 +100,7 @@ This project is licensed under the MIT License.
 
 Happy diagramming!
 
-For any issues or feature requests, please [open an issue](https://github.com/csteeg/kroki-preview-vscode/issues).
+For any issues or feature requests, please [open an issue](https://github.com/agayev169/kroki-preview-vscode/issues).
 
 ---
 
